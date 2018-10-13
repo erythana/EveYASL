@@ -7,13 +7,12 @@ Imports System.ComponentModel
 
 Public Class EveYASL
 	Public Shared Property access_token As String = ""
-	Public Shared Property refresh_token As String = ""
 	Public Shared Property codechallenge As String = ""
-	'Private Shared refresh_token As String
 
 	Private Shared oAuthServer As String
 	Private Shared clientID As String
 	Private Shared verifier As String
+	Private Shared refresh_token As String = ""
 
 
 	Public Shared Sub Initialize()
