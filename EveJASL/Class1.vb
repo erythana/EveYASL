@@ -6,9 +6,10 @@ Imports Newtonsoft.Json
 Imports System.ComponentModel
 
 Public Class EveYASL
-	Public Shared Property access_token
-	Public Shared Property codechallenge As String
-	Private Shared refresh_token As String
+	Public Shared Property access_token As String = ""
+	Public Shared Property refresh_token As String = ""
+	Public Shared Property codechallenge As String = ""
+	'Private Shared refresh_token As String
 
 	Private Shared oAuthServer As String
 	Private Shared clientID As String
@@ -19,15 +20,12 @@ Public Class EveYASL
 		'TODO: Implement check wheter to expose the access_code or not (and to checker wheter everything submitted is correct)
 		CreatePKCE()
 
-
-
 	End Sub
 
-	Public Shared Sub Settings(ByVal oAuthServer As String, ByVal clientID As String, ByVal authorizationcode As String)
-		If oAuthServer <> "" And clientID <> "" And authorizationcode <> "" Then
-			CreatePKCE()
-			oAuthServer = oAuthServer
-			clientID = clientID
+	Public Shared Sub Settings(ByVal oAuthServernew As String, ByVal clientIDnew As String, ByVal authorizationcode As String)
+		If oAuthServernew <> "" And clientIDnew <> "" And authorizationcode <> "" Then
+			oAuthServer = oAuthServernew
+			clientID = clientIDnew
 			Dim requesttype As String = "authorization_code"
 			Dim modifiedcode = "&code=" & authorizationcode
 			Dim modifiedVerifier = "&code_verifier=" & verifier
@@ -38,9 +36,10 @@ Public Class EveYASL
 				refresh_token = json_result.refresh_token
 
 				'set up timer for refresh_token:
-				Dim timerDelegate As System.Threading.TimerCallback = AddressOf GetRefreshToken
-				Dim refreshTimer As New System.Threading.Timer(timerDelegate, Nothing, 0, 20000)
-
+				Dim refreshTimer = New System.Timers.Timer(900000)
+				AddHandler refreshTimer.Elapsed, AddressOf GetRefreshToken
+				refreshTimer.AutoReset = True
+				refreshTimer.Enabled = True
 			End If
 		End If
 	End Sub
@@ -72,13 +71,10 @@ Public Class EveYASL
 				Dim pagecontent As String = New StreamReader(response.GetResponseStream()).ReadToEnd
 				Dim jsonresult As JSON_result = JsonConvert.DeserializeObject(Of JSON_result)(pagecontent)
 				Return jsonresult
-			Else
 			End If
-
 		Catch ex As WebException
-			'TODO: Where to pipe error?
 			Dim pagecontent = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd
-
+			Throw New Exception("Error getting data from server:" & vbNewLine & pagecontent)
 		End Try
 		Return Nothing
 	End Function
@@ -92,7 +88,6 @@ Public Class EveYASL
 		access_token = json_result.access_token
 		refresh_token = json_result.refresh_token
 	End Sub
-
 
 
 	Private Class JSON_result
