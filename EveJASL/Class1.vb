@@ -5,7 +5,7 @@ Imports System.Text
 Imports Newtonsoft.Json
 Imports System.ComponentModel
 
-Public Class EveJASL
+Public Class EveYASL
 	Public Shared Property access_token
 	Public Shared Property codechallenge As String
 	Private Shared refresh_token As String
