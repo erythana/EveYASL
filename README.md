@@ -39,7 +39,19 @@ There are a few things to set up before you can use this library. The basic usag
 		End Sub
 
 This will call the "ProcessCallback" Function in Form 1 and submit the string "s" (wich is the full URI).
-Process it so you can get the auth code.
+Process it so you can get the auth code.  
+Now, create the following registry keys (according to https://msdn.microsoft.com/en-us/windows/desktop/aa767914#MainContent)
+
+
+    HKEY_CLASSES_ROOT
+       <URI-protocolname>
+          DefaultIcon
+             (Default) = "<pathtoyourapplication.exe,1"
+          shell
+             open
+                command
+                   (Default) = "<pathtoyourapplication.exe" "%1"
+
 
  - Pass the variables to the Library  
   EveYasl.Settings(AuthServer, Client-ID, authcode)
