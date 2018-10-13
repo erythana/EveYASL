@@ -8,6 +8,7 @@ eveYASL is a .NET library which supports you with the oAuth2 Authentication (wit
 # How to use the library
 There are a few things to set up before you can use this library. The basic usage is like the following:
   - Initialize the Library
+  Required to get the code_challenge which is used in the next step.
   This will look like this:
  
 
