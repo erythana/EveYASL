@@ -18,7 +18,7 @@ Public Class EveYASL
 
 	Public Shared Sub Initialize()
 		'TODO: Implement check wheter to expose the access_code or not (and to checker wheter everything submitted is correct)
-		CreatePKCE()
+		CreatePKCEDATA()
 
 	End Sub
 
@@ -44,7 +44,7 @@ Public Class EveYASL
 		End If
 	End Sub
 
-	Private Shared Sub CreatePKCE()
+	Private Shared Sub CreatePKCEData()
 		Dim buffer = New Byte(32) {}
 		Dim rng = New RNGCryptoServiceProvider()
 		rng.GetBytes(buffer)
