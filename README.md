@@ -59,7 +59,7 @@ Now, create the following registry keys (according to https://msdn.microsoft.com
 
 			EveYASL.Settings("https://login.eveonline.com/v2/oauth/token", "f04e32dfasdfcc5a857dafa09127c", authcode)
 
-  The token will update automatically before expiring. If you've set everything up you can retriev the Access-Token via
+  The token will update automatically before expiring. If you've set everything up you can retrieve the Access-Token via
   
 			EveYasl.access_token
 
