@@ -1,5 +1,5 @@
 
-#YASL
+# YASL
 Yet another Swagger Library
 
 YASL is a .NET library which supports you with the oAuth2 Authentication (with PKCE Implementation).
