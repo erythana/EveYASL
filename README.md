@@ -3,7 +3,7 @@
 Yet another Swagger Library
 
 YASL is a .NET library which supports you with the oAuth2 Authentication (with PKCE Implementation).
-  - Provides an easy to use interface to retrieve the access_code which allows you to authenticate with an ESI-Endpoint.
+  - Provides an easy to use interface to retrieve the access_code which allows you to authenticate yourself at an endpoint.
   
 # How to use the library
 There are a few things to set up before you can use this library. The basic usage is like the following:
