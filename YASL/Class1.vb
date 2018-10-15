@@ -5,7 +5,7 @@ Imports System.Text
 Imports Newtonsoft.Json
 Imports System.ComponentModel
 
-Public Class EveYASL
+Public Class YASL
 	Public Shared Property access_token As String = ""
 	Public Shared Property codechallenge As String = ""
 
@@ -17,7 +17,7 @@ Public Class EveYASL
 
 	Public Shared Sub Initialize()
 		'TODO: Implement check wheter to expose the access_code or not (and to checker wheter everything submitted is correct)
-		CreatePKCEDATA()
+		CreatePKCEData()
 
 	End Sub
 

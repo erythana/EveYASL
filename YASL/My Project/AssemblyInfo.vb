@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Werte der Assemblyattribute überprüfen
 
-<Assembly: AssemblyTitle("EveYASL")>
+<Assembly: AssemblyTitle("YASL")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("EveYASL")>
+<Assembly: AssemblyProduct("YASL")>
 <Assembly: AssemblyCopyright("Copyright ©  2018")>
 <Assembly: AssemblyTrademark("")>
 
