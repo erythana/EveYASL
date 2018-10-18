@@ -57,7 +57,7 @@ Now, create the following registry keys (according to https://msdn.microsoft.com
   Yasl.Settings(AuthServer, Client-ID, authcode)
   The call cann look like this:  
 
-			YASL.Settings("https://login.eveonline.com/v2/oauth/token", "f04e32dfasdfcc5a857dafa09127c", authcode)
+			YASL.Settings("https://login.eveonline.com/v2/oauth/token", "f04e32dfasdfcc5a857dafa09127c", authcode, HostHeader (optional))
 
   The token will update automatically before expiring. If you've set everything up you can retrieve the Access-Token via
   
